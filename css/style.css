@@ -14,3 +14,34 @@
     background-color: F48598;
     color: white;
 }
+#cajapadre {
+    display: flex;
+    flex-direction: row;
+    background-color: aquamarine;
+}
+
+#cajapadre>div {
+    height: 145px;
+    margin: 5px;
+    background-color: #CCCCCC;
+}
+
+#caja-1 {
+    /* max-width: 50px; */
+    flex: 1 1 auto;
+}
+
+#caja-2 {
+    /* width: 100px; */
+    flex: 1 1 auto;
+}
+
+#caja-3 {
+    /* width: 100px; */
+    flex: 1 1 auto;
+}
+
+#caja-4 {
+    /* width: 100px; */
+    flex: 1 1 auto;
+}
