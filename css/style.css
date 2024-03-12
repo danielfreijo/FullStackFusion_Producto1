@@ -83,7 +83,7 @@
 } */
 
 .card:hover {
-    scale: 1.1;
+    scale: 1.05;
 }
 
 .card.show {
@@ -102,6 +102,16 @@
     bottom: 5px;
     padding: 5px;
 }
+
+.iconFav .fas:hover {  
+    color: rgb(255, 98, 0);
+}
 .iconFav .fas {  
     color: yellow;
 }
+
+.iconFavRed {  
+    color: red !important; /* Añade !important para asegurar que el estilo se aplique */
+}
+
+

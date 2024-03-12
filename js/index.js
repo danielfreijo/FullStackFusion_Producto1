@@ -39,6 +39,19 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+  // Agrega un evento de clic al contenedor de tarjetas
+  var cardList = document.getElementById('cajapadre');
+  cardList.addEventListener('click', function (event) {
+      // Verifica si el clic ocurrió en un ícono favorito
+      if (event.target.classList.contains('fas')) {
+          // Cambia el color del ícono al hacer clic
+          event.target.classList.toggle('iconFavRed');
+      }
+  });
+});
+
+
 function inicializarApp(proyectos) {
   // Aquí puedes realizar cualquier inicialización necesaria de tu aplicación
   // Por ejemplo, crear las tarjetas de proyecto con los datos cargados
@@ -59,4 +72,8 @@ function inicializarApp(proyectos) {
       newCard.classList.add('show');
     }, 10);
   });
+
+
+
+
 }
