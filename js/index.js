@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
     newCard.innerHTML = `    
     <div class="card-title">Proyecto ${contador}</div>
     <div class="card-description">Descripción del proyecto con id ${numeroCaja}.</div>    
+    <div class="iconFav"><i class="fas fa-star"></i></div>
     `;
     contador++;
     // Obtiene el contenedor de tarjetas por su ID
@@ -50,6 +51,7 @@ function inicializarApp(proyectos) {
     newCard.innerHTML = `    
           <div class="card-title">${proyecto.nombre}</div>
           <div class="card-description">${proyecto.descripcion} con id ${numeroCaja}.</div>
+          <div class="iconFav"><i class="fas fa-star" style="color: red"></i></div>
       `;
     cardList.appendChild(newCard);
     // Tras un breve retraso, activar la clase 'show' para aplicar la transición
