@@ -70,6 +70,8 @@ function openModal() {
       // Insertar el contenido del modal en el cuerpo del documento
       document.body.insertAdjacentHTML('beforeend', modalContent);
 
+      validacionSelectDepartment(document.getElementById('department')); 
+
       // Mostrar el modal (si estás utilizando alguna biblioteca o framework para modales)
       $('#exampleModal').modal('show');
 
@@ -107,35 +109,22 @@ function captureFormValues(event) {
   var projectName = document.getElementById('name').value;
   var department = document.getElementById('department').value;
   var description = document.getElementById('description').value;
-  console.log("Nombre del proyecto: " + projectName);
-  console.log("Departamento: " + department);
-  console.log("Descripción: " + description);
 
   // Verificar el estado de validación de cada campo
   var isNameValid = document.getElementById('name').validity.valid;
   var isDescriptionValid = document.getElementById('description').validity.valid;
+  // Con el select department parece que no funciona
   var isDepartmentValid = document.getElementById('department').validity.valid;
   var selectedDepartment = document.getElementById('department').value;
-  console.log(document.getElementById('name').validity.valid);
+  validacionSelectDepartment(document.getElementById('department'));
   // Verificar si el departamento seleccionado es válido
   if (selectedDepartment === "Departamento") {
     // Marcar como no válido si el valor seleccionado es el predeterminado
     console.log('invalido :>> ', 'invalido');
     isDepartmentValid = false;
-    // Obtener el elemento <select> por su ID
-    var selectDepartment = document.getElementById('department');
-
-    // Agregar una clase al elemento para aplicar estilos específicos
-    selectDepartment.classList.add('border-red');
-
-  }else{
+  } else {
     console.log('invalido :>> ', 'valido');
     isDepartmentValid = true;
-    // Obtener el elemento <select> por su ID
-    var selectDepartment = document.getElementById('department');
-
-    // Agregar una clase al elemento para aplicar estilos específicos
-    selectDepartment.classList.remove('border-red');
   }
   // Comprobar si todos los datos son válidos
   if (isNameValid && isDepartmentValid && isDescriptionValid) {
@@ -165,7 +154,7 @@ function captureFormValues(event) {
     //Cerrar el modal
     // Limpiar los valores de los campos del formulario
     document.getElementById('name').value = '';
-    document.getElementById('department').selected = '';
+    document.getElementById('department').selectedIndex = 0;
     document.getElementById('description').value = '';
     // Cerrar el modal después de capturar los valores
     $('#exampleModal').modal('hide');
@@ -239,3 +228,27 @@ function crearNuevaTarjetaProyecto(newProject) {
   });
 
 }
+/* >>>>>>>>>>>>>>>>>>>>>>
+ * COMPORTAMIENTO Y VALIDACIÓN DEL SELECT DEPARTMENT *
+ <<<<<<<<<<<<<<<<<<<<<<<<*/
+ function validacionSelectDepartment(selectDepartMent){
+ // Obtener el valor del select
+//  var selectedDepartment = selectDepartMent.value;
+
+ // Verificar si el departamento seleccionado es válido
+ if (selectDepartMent.value === "Departamento") {
+   // Marcar como no válido si el valor seleccionado es el predeterminado
+   console.log('invalido :>> ', 'invalido');  
+   // Agregar una clase al elemento para aplicar estilos específicos
+   selectDepartMent.classList.add('border-red');
+ } else {
+   console.log('invalido :>> ', 'valido');
+   // Agregar una clase al elemento para aplicar estilos específicos
+   selectDepartMent.classList.remove('border-red');
+ }
+ // Agregar un event listener para el evento 'change'
+ selectDepartMent.addEventListener('change', function (event) {
+   // Aquí puedes colocar el código que deseas ejecutar cuando cambia el valor seleccionado
+   validacionSelectDepartment(selectDepartMent);
+ });
+ }
