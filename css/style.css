@@ -278,11 +278,16 @@ h1,h2,h3,h4,h5,h6{
  }
  /*validaciones para los campos del modal*/
  input:invalid,
+ select:invalid,
  textarea:invalid {
    border: 1px solid red;
  }
  
  input:valid,
+ select:valid,
  textarea:valid {
    border: 1px solid #ced4da; /* Cambia este color al color de borde predeterminado */
  }
+.border-red {
+  border-color: red !important; /* Cambia el color del borde a rojo */
+}
