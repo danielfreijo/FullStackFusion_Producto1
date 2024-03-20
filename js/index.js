@@ -1,15 +1,29 @@
-document.write('<script src="proyectos.js"></script>');
+
+// Verificar si los datos ya están en localStorage
+if (localStorage.getItem('projectsdb') === null) {
+  // Si no están, importarlos desde proyectos.js
+  document.write('<script src="proyectos.js"></script>');
+  console.log('Los datos NO ESTAN están en localStorage AHORA SE HAN CARGADO.');
+} else {
+  // Si ya están, no es necesario importarlos nuevamente
+  console.log('Los datos ya están en localStorage.');
+}
+
 /* >>>>>>>>>>>>>>>>>>>>>>
  * Recuperar datos de session *
  <<<<<<<<<<<<<<<<<<<<<<<<*/
-var getDataStorageProjects = sessionStorage.getItem('projectsdb');
-var projectsDb = JSON.parse(getDataStorageProjects);
-console.log(projectsDb);
-
+// console.log(projectsDb);
+var projectsDb;
 var contador = 1;
 document.addEventListener("DOMContentLoaded", function () {
+  // Recuperar los datos de localStorage
+  projectsDb = JSON.parse(localStorage.getItem('projectsdb'));
+  console.log('projectsDb :>> ', projectsDb);
   // Espera a que el documento HTML esté completamente cargado antes de ejecutar el código dentro de la función.
-
+  // Abrir la interface2 desde una tarjeta de proyectos
+  document.getElementById('cajapadre').addEventListener("click", function () {
+    window.open('/html/interface2.html', '_self');
+  });
   // Obtiene el botón "Añadir elemento" por su ID
   var addCardButton = document.getElementById("addCardButton");
 
@@ -70,7 +84,7 @@ function openModal() {
       // Insertar el contenido del modal en el cuerpo del documento
       document.body.insertAdjacentHTML('beforeend', modalContent);
 
-      validacionSelectDepartment(document.getElementById('department')); 
+      validacionSelectDepartment(document.getElementById('department'));
 
       // Mostrar el modal (si estás utilizando alguna biblioteca o framework para modales)
       $('#exampleModal').modal('show');
@@ -129,7 +143,7 @@ function captureFormValues(event) {
   // Comprobar si todos los datos son válidos
   if (isNameValid && isDepartmentValid && isDescriptionValid) {
     //TODO
-    // Añadir datos al array de sessionStorage
+    // Añadir datos al array de localStorage
     console.log("Nombre del proyecto: " + projectName);
     console.log("Departamento: " + department);
     console.log("Descripción: " + description);
@@ -146,7 +160,9 @@ function captureFormValues(event) {
     }
     console.log('newProject :>> ', newProject);
     projectsDb.push(newProject);
-
+    // Guardar los datos actualizados en localStorage
+    localStorage.setItem('projectsdb', JSON.stringify(projectsDb));
+    console.log('localStorage :>> ', localStorage.getItem('projectsdb'));
     //TODO
     // Crear una nueva tarjeta
     crearNuevaTarjetaProyecto(newProject);
@@ -211,8 +227,8 @@ function crearNuevaTarjetaProyecto(newProject) {
       if (projectIndex !== -1) {// si existe
         // aplico condicional ternario
         projectsDb[projectIndex].priority = (projectsDb[projectIndex].priority === 0) ? 1 : 0;
-        // actualizo la sessionStorage
-        sessionStorage.setItem('projectsdb', JSON.stringify(projectsDb));
+        // actualizo la localStorage
+        localStorage.setItem('projectsdb', JSON.stringify(projectsDb));
         // checkeo y cambio el color
         event.target.style.color = checkPriorityColor(projectsDb[projectIndex].priority);
       }
@@ -231,24 +247,24 @@ function crearNuevaTarjetaProyecto(newProject) {
 /* >>>>>>>>>>>>>>>>>>>>>>
  * COMPORTAMIENTO Y VALIDACIÓN DEL SELECT DEPARTMENT *
  <<<<<<<<<<<<<<<<<<<<<<<<*/
- function validacionSelectDepartment(selectDepartMent){
- // Obtener el valor del select
-//  var selectedDepartment = selectDepartMent.value;
+function validacionSelectDepartment(selectDepartMent) {
+  // Obtener el valor del select
+  //  var selectedDepartment = selectDepartMent.value;
 
- // Verificar si el departamento seleccionado es válido
- if (selectDepartMent.value === "Departamento") {
-   // Marcar como no válido si el valor seleccionado es el predeterminado
-   console.log('invalido :>> ', 'invalido');  
-   // Agregar una clase al elemento para aplicar estilos específicos
-   selectDepartMent.classList.add('border-red');
- } else {
-   console.log('invalido :>> ', 'valido');
-   // Agregar una clase al elemento para aplicar estilos específicos
-   selectDepartMent.classList.remove('border-red');
- }
- // Agregar un event listener para el evento 'change'
- selectDepartMent.addEventListener('change', function (event) {
-   // Aquí puedes colocar el código que deseas ejecutar cuando cambia el valor seleccionado
-   validacionSelectDepartment(selectDepartMent);
- });
- }
+  // Verificar si el departamento seleccionado es válido
+  if (selectDepartMent.value === "Departamento") {
+    // Marcar como no válido si el valor seleccionado es el predeterminado
+    console.log('invalido :>> ', 'invalido');
+    // Agregar una clase al elemento para aplicar estilos específicos
+    selectDepartMent.classList.add('border-red');
+  } else {
+    console.log('invalido :>> ', 'valido');
+    // Agregar una clase al elemento para aplicar estilos específicos
+    selectDepartMent.classList.remove('border-red');
+  }
+  // Agregar un event listener para el evento 'change'
+  selectDepartMent.addEventListener('change', function (event) {
+    // Aquí puedes colocar el código que deseas ejecutar cuando cambia el valor seleccionado
+    validacionSelectDepartment(selectDepartMent);
+  });
+}

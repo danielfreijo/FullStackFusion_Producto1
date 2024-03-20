@@ -35,4 +35,4 @@ var projects = [
  * Añadir array a variable de sessionStorage *
  <<<<<<<<<<<<<<<<<<<<<<<<*/
 var tempProjects = JSON.stringify(projects);
-sessionStorage.setItem('projectsdb', tempProjects);
+localStorage.setItem('projectsdb', tempProjects);

@@ -52,9 +52,12 @@ h1,h2,h3,h4,h5,h6{
  * GRID *
  <<<<<<<<<<<<<<<<<<<<<<<<*/
 .grid{
-  display: grid;
+  display: grid;  
   gap: 10px;
   margin: 10px;
+  align-items: stretch;
+  justify-content: auto;
+  align-self: center;
 } 
 
 /* Tamaño grande ordenadores y pc */
@@ -200,15 +203,6 @@ h1,h2,h3,h4,h5,h6{
 
 
 
-/* #cajapadre {
-  display: flex;
-  width: 80%;
-  min-width: 250px;
-} 
-
-*/
-
-
 
 .card-title {
   font-weight: bold;
@@ -244,11 +238,7 @@ h1,h2,h3,h4,h5,h6{
   /* Hacer visible */
 }
 
-.sticky-top {
-  position: sticky;
-  top: 0;
-  z-index: 1020;
-}
+
 .iconFlag {
   position: absolute;
   right: 5px;
@@ -269,25 +259,3 @@ h1,h2,h3,h4,h5,h6{
   color: red; /* Añade !important para asegurar que el estilo se aplique */
 }
 
-/* >>>>>>>>>>>>>>>>>>>>>>
- * MODAL *
- <<<<<<<<<<<<<<<<<<<<<<<<*/
- .modal-header{
-  background-color:  rgb(60, 72, 243);
-  color: rgba(203, 195, 195, 1);
- }
- /*validaciones para los campos del modal*/
- input:invalid,
- select:invalid,
- textarea:invalid {
-   border: 1px solid red;
- }
- 
- input:valid,
- select:valid,
- textarea:valid {
-   border: 1px solid #ced4da; /* Cambia este color al color de borde predeterminado */
- }
-.border-red {
-  border-color: red !important; /* Cambia el color del borde a rojo */
-}
