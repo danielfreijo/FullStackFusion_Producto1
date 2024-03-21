@@ -15,7 +15,7 @@
 
 <body>
     <!--Menú de navegación-->
-    <nav class="navbar fixed-botton navbar-expand-md sticky-top navbar-dark">
+    <nav class="navbar fixed-botton  navbar-expand-md navbar-expand-lg sticky-top navbar-dark">
         <div class="container-fluid"><a class="navbar-brand" href="index.html"><img class="d-inline-block"
                     src="../assets/logo.png" alt="Logo" width="125" height="70" /></a><button class="navbar-toggler"
                 data-bs-toggle="collapse" data-bs-target="#navbarNav" type="button" aria-controls="navbarNav"
@@ -31,15 +31,106 @@
             </div>
         </div>
     </nav>
+    <div class="contenedor-tableros">
+        <div class="contenedor-block">
+            <section>
+                <nav class="sticky-top ">
+                    <H3>TODO</H3>
+                </nav>
+                <div class="comlumna-tareas" id="columna1" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <div class="card" id="card1" draggable="true" ondragstart="drag(event)">
+                        <div class="card-title">${newProject.name}</div>
+                        <div class="card-description">${newProject.description} con id ${newProject.id}.</div>
+                        <div class="iconFlag"><i class="fas fa-flag"></i></div>
+                    </div>
 
-    <div class="contenedor">
-        <div class="item">Columna 1</div>
-        <div class="item">Columna 2</div>
-        <div class="item">Columna 3</div>
+                    <div class="card" id="card1" draggable="true" ondragstart="drag(event)">
+                        <div class="card-title">${newProject.name}</div>
+                        <div class="card-description">${newProject.description} con id ${newProject.id}.</div>
+                        <div class="iconFlag"><i class="fas fa-flag"></i></div>
+                    </div>
 
+                    <div class="card" id="card2" draggable="true" ondragstart="drag(event)">
+                        <div class="card-title">${newProject.name}</div>
+                        <div class="card-description">${newProject.description} con id ${newProject.id}.</div>
+                        <div class="iconFlag"><i class="fas fa-flag"></i></div>
+                    </div>
 
+                    <div class="card" id="card3" draggable="true" ondragstart="drag(event)">
+                        <div class="card-title">${newProject.name}</div>
+                        <div class="card-description">${newProject.description} con id ${newProject.id}.</div>
+                        <div class="iconFlag"><i class="fas fa-flag"></i></div>
+                    </div>
 
+                    <div class="card" id="card4" draggable="true" ondragstart="drag(event)">
+                        <div class="card-title">${newProject.name}</div>
+                        <div class="card-description">${newProject.description} con id ${newProject.id}.</div>
+                        <div class="iconFlag"><i class="fas fa-flag"></i></div>
+                    </div>
+
+                    <div class="card" id="card5" draggable="true" ondragstart="drag(event)">
+                        <div class="card-title">${newProject.name}</div>
+                        <div class="card-description">${newProject.description} con id ${newProject.id}.</div>
+                        <div class="iconFlag"><i class="fas fa-flag"></i></div>
+                    </div>
+
+                    <div class="card" id="card6" draggable="true" ondragstart="drag(event)">
+                        <div class="card-title">${newProject.name}</div>
+                        <div class="card-description">${newProject.description} con id ${newProject.id}.</div>
+                        <div class="iconFlag"><i class="fas fa-flag"></i></div>
+                    </div>
+                </div>
+                <div>
+                    <footer class="p-3">Añada tarjeta
+                        <div class="iconPlus mx-3"><i class="fas fa-plus"></i></div>
+                    </footer>
+                </div>
+
+            </section>
+            <section>
+                <nav class="sticky-top ">
+                    <H3>EN PROCESO</H3>
+                </nav>
+                <div class="comlumna-tareas" id="columna2" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <div class="card" id="card7" draggable="true" ondragstart="drag(event)">
+                        <div class="card-title">${newProject.name}</div>
+                        <div class="card-description">${newProject.description} con id ${newProject.id}.</div>
+                        <div class="iconFlag"><i class="fas fa-flag"></i></div>
+                    </div>
+
+                    <div class="card" id="card8" draggable="true" ondragstart="drag(event)">
+                        <div class="card-title">${newProject.name}</div>
+                        <div class="card-description">${newProject.description} con id ${newProject.id}.</div>
+                        <div class="iconFlag"><i class="fas fa-flag"></i></div>
+                    </div>
+                </div>
+                <footer class=" p-3">Añada tarjeta</footer>
+            </section>
+            <section>
+                <nav class="sticky-top ">
+                    <H3>REALIZADO</H3>
+                </nav>
+                <div class="comlumna-tareas" id="columna3" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <div class="card" id="card9" draggable="true" ondragstart="drag(event)">
+                        <div class="card-title">${newProject.name}</div>
+                        <div class="card-description">${newProject.description} con id ${newProject.id}.</div>
+                        <div class="iconFlag"><i class="fas fa-flag"></i></div>
+                    </div>
+
+                    <div class="card" id="card10" draggable="true" ondragstart="drag(event)">
+                        <div class="card-title">${newProject.name}</div>
+                        <div class="card-description">${newProject.description} con id ${newProject.id}.</div>
+                        <div class="iconFlag"><i class="fas fa-flag"></i></div>
+                    </div>
+                </div>
+                <footer class=" p-3">Añada tarjeta</footer>
+            </section>
+
+        </div>
     </div>
+    <!-- <footer>
+        <p>Footer</p>
+    </footer> -->
 
 
 
